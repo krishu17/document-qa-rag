@@ -1,0 +1,14 @@
+# Retrieval (fully local, no API key needed)
+numpy
+faiss-cpu
+rank_bm25
+scikit-learn
+
+# LLM plumbing (generation step only)
+langchain-core>=0.3
+langchain-openai
+langchain-anthropic
+
+# Dev / test
+pytest
+python-dotenv
