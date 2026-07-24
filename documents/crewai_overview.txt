@@ -1,0 +1,16 @@
+CrewAI is a framework for orchestrating role-based, autonomous AI agents. Instead
+of an explicit state graph, CrewAI models a workflow as a "crew" of agents, each
+with a role, a goal, and a backstory, working together on a sequence of tasks.
+Agents can be assigned tools, and tasks can depend on the output of earlier tasks
+via a context parameter, allowing information to flow from one agent to the next.
+
+CrewAI supports two main process types: sequential, where tasks run one after
+another in a fixed order, and hierarchical, where a manager agent delegates work
+to other agents dynamically. This makes CrewAI a good fit for workflows that
+resemble a small team of specialists, such as a researcher gathering information,
+a writer drafting a response, and a reviewer checking it for accuracy before it
+is returned to the user.
+
+Compared to LangGraph's explicit graph model, CrewAI trades some low-level
+control over execution flow for a higher-level, faster-to-set-up abstraction
+built around roles and goals rather than nodes and edges.

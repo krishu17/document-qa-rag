@@ -1,0 +1,17 @@
+LangGraph is a library for building stateful, multi-agent applications with LLMs.
+It represents an application as a graph of nodes and edges, where each node is a
+Python function that reads and writes to a shared state object. Unlike a simple
+linear chain, LangGraph supports cycles, conditional branching, and parallel
+fan-out via the Send API, which makes it well suited for agentic workflows such
+as planner/worker patterns, human-in-the-loop approval steps, and retry logic.
+
+A typical LangGraph application defines a TypedDict for its state, adds nodes
+with add_node, and wires them together with add_edge or add_conditional_edges.
+The graph is compiled into a runnable application that can be invoked with an
+initial state and returns the final state after execution. Checkpointing support
+allows long-running graphs to persist state between steps, which is useful for
+workflows that pause for human input or run over multiple sessions.
+
+Common use cases for LangGraph include multi-agent research assistants, customer
+support routing systems, and code review pipelines where multiple specialized
+agents each handle a different part of a larger task.

@@ -1,0 +1,20 @@
+Retrieval-Augmented Generation (RAG) is a technique for grounding large language
+model responses in external documents rather than relying solely on the model's
+training data. A typical RAG pipeline has three stages: ingestion, retrieval, and
+generation. During ingestion, documents are split into smaller chunks, and each
+chunk is converted into a vector embedding and stored in a vector database such
+as FAISS, Chroma, or Pinecone.
+
+At query time, the user's question is embedded using the same embedding model,
+and the vector database returns the chunks whose embeddings are most similar to
+the query, typically using cosine similarity or inner product search. Many
+production RAG systems combine this semantic search with traditional keyword
+search, such as BM25, and merge the two ranked lists using a technique like
+Reciprocal Rank Fusion (RRF), since semantic and keyword search tend to fail on
+different kinds of queries.
+
+Finally, the retrieved chunks are inserted into the language model's prompt as
+context, and the model generates an answer grounded in that context. Including
+citations back to the source chunks helps users verify the answer and reduces
+the impact of hallucination, since claims that are not supported by any
+retrieved chunk are easier to spot.
