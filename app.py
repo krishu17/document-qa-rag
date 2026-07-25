@@ -22,11 +22,11 @@ st.set_page_config(page_title="Document Q&A", page_icon="\U0001F4C4", layout="ce
 _CSS = """
 <style>
 :root {
-    --accent: #1c7f72;
-    --accent-soft: #e2f0ec;
+    --accent: #1b2a6b;
+    --accent-soft: #eef1f8;
 }
 @media (prefers-color-scheme: dark) {
-    :root { --accent: #5fc9b8; --accent-soft: #132824; }
+    :root { --accent: #7c93e6; --accent-soft: #1a2350; }
 }
 .stApp [data-testid="stHeader"] { background: transparent; }
 .rag-hero { padding: 4px 0 18px; border-bottom: 1px solid rgba(128,128,128,.25); margin-bottom: 22px; }
