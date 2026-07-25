@@ -26,15 +26,23 @@ class Chunk:
         return f"{self.source}::{self.chunk_index}"
 
 
+def _extract_pdf_text(path: str) -> str:
+    from pypdf import PdfReader
+
+    reader = PdfReader(path)
+    return "\n\n".join(page.extract_text() or "" for page in reader.pages)
+
+
 def load_documents(directory: str) -> List[tuple[str, str]]:
-    """Return a list of (filename, text) for every .txt file in directory."""
+    """Return a list of (filename, text) for every .txt/.pdf file in directory."""
     docs = []
     for fname in sorted(os.listdir(directory)):
-        if not fname.endswith(".txt"):
-            continue
         path = os.path.join(directory, fname)
-        with open(path, "r", encoding="utf-8") as f:
-            docs.append((fname, f.read()))
+        if fname.endswith(".txt"):
+            with open(path, "r", encoding="utf-8") as f:
+                docs.append((fname, f.read()))
+        elif fname.endswith(".pdf"):
+            docs.append((fname, _extract_pdf_text(path)))
     return docs
 
 

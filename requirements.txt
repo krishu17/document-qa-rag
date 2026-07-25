@@ -3,11 +3,15 @@ numpy
 faiss-cpu
 rank_bm25
 scikit-learn
+pypdf
 
 # LLM plumbing (generation step only)
 langchain-core>=0.3
 langchain-openai
 langchain-anthropic
+
+# UI
+streamlit
 
 # Dev / test
 pytest

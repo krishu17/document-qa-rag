@@ -4,3 +4,8 @@ __pycache__/
 .env
 .pytest_cache/
 *.egg-info/
+
+# Large local documents -- kept out of git so clones stay small.
+# Drop your own .txt/.pdf files into documents/ locally; they're indexed
+# at runtime but never pushed.
+documents/*.pdf
